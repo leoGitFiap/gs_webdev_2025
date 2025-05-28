@@ -5,3 +5,5 @@ export const Solucao = () => {
     <div>Solucao</div>
   )
 }
+
+export default Solucao;
