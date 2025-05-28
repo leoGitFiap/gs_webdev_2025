@@ -8,7 +8,6 @@ import Login from "./routes/Login"
 import Sobre from "./routes/Sobre"
 import Solucao from "./routes/Solucao"
 
-
 function App() {
 
   return (
