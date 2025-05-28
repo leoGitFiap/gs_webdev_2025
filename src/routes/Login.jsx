@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,10 +14,21 @@ const Login = () => {
     const user = users.find((u) => u.email === email && u.password === password);
 
     if (user) {
+      // Store current user in localStorage
+      localStorage.setItem('currentUser', JSON.stringify(user));
       setMessage(`Bem-vindo, ${user.username}!`);
+      // Redirect to /solucao after 1 second
+      setTimeout(() => navigate('/solucao'), 1000);
     } else {
       setMessage('Email ou senha inválidos.');
     }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('currentUser');
+    setMessage('Logout realizado com sucesso.');
+    setEmail('');
+    setPassword('');
   };
 
   return (
@@ -59,8 +71,16 @@ const Login = () => {
             Entrar
           </button>
         </form>
+        {JSON.parse(localStorage.getItem('currentUser')) && (
+          <button
+            onClick={handleLogout}
+            className="mt-4 w-full bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 hover:font-semibold transition"
+          >
+            Sair
+          </button>
+        )}
         {message && (
-          <p className={`mt-4 text-center ${message.includes('Bem-vindo') ? 'text-green-500' : 'text-red-500'}`}>
+          <p className={`mt-4 text-center ${message.includes('Bem-vindo') || message.includes('Logout') ? 'text-green-500' : 'text-red-500'}`}>
             {message}
           </p>
         )}
