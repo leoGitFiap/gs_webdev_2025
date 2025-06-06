@@ -10,9 +10,9 @@ export const Nav = () => {
   };
 
   return (
-    <nav className="bg-primary bg-gray-950 text-white py-4 sticky top-0 z-50 shadow-md">
+    <nav className="gradient-bg text-white p-6 sticky top-0 z-50 shadow-lg">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-        <h1 className="text-2xl text-green-500 font-bold">Games Store</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-green-500">AlertaCheia</h1>
         <ul className="flex space-x-6">
           <li>
             <NavLink
@@ -20,19 +20,19 @@ export const Nav = () => {
               className={({ isActive }) =>
                 isActive
                   ? 'text-green-500 font-semibold'
-                  : 'hover:text-secondary transition hover:text-green-500 hover:font-semibold'
+                  : 'hover:text-green-200 transition hover:font-semibold'
               }
             >
-              Home
+              Início
             </NavLink>
           </li>
           <li>
             <NavLink
-              to={currentUser ? '/solucao' : '/login'}
+              to="/solucao"
               className={({ isActive }) =>
                 isActive
                   ? 'text-green-500 font-semibold'
-                  : 'hover:text-secondary transition hover:text-green-500 hover:font-semibold'
+                  : 'hover:text-green-200 transition hover:font-semibold'
               }
             >
               Solução
@@ -44,7 +44,7 @@ export const Nav = () => {
               className={({ isActive }) =>
                 isActive
                   ? 'text-green-500 font-semibold'
-                  : 'hover:text-secondary transition hover:text-green-500 hover:font-semibold'
+                  : 'hover:text-green-200 transition hover:font-semibold'
               }
             >
               Sobre
@@ -54,7 +54,7 @@ export const Nav = () => {
             {currentUser ? (
               <button
                 onClick={handleLogout}
-                className="text-white hover:text-green-500 hover:font-semibold transition"
+                className="text-white hover:text-green-200 hover:font-semibold transition"
               >
                 Sair
               </button>
@@ -64,7 +64,7 @@ export const Nav = () => {
                 className={({ isActive }) =>
                   isActive
                     ? 'text-green-500 font-semibold'
-                    : 'hover:text-secondary transition hover:text-green-500 hover:font-semibold'
+                    : 'hover:text-green-200 transition hover:font-semibold'
                 }
               >
                 Login
@@ -73,6 +73,11 @@ export const Nav = () => {
           </li>
         </ul>
       </div>
+      <style jsx>{`
+        .gradient-bg {
+          background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+        }
+      `}</style>
     </nav>
   );
 };

@@ -9,15 +9,12 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Retrieve users from localStorage
     const users = JSON.parse(localStorage.getItem('users')) || [];
     const user = users.find((u) => u.email === email && u.password === password);
 
     if (user) {
-      // Store current user in localStorage
       localStorage.setItem('currentUser', JSON.stringify(user));
-      setMessage(`Bem-vindo, ${user.username}!`);
-      // Redirect to /solucao after 1 second
+      setMessage(`Bem-vindo, ${user.username}! Você está conectado ao AlertaCheia.`);
       setTimeout(() => navigate('/solucao'), 1000);
     } else {
       setMessage('Email ou senha inválidos.');
@@ -32,9 +29,9 @@ const Login = () => {
   };
 
   return (
-    <div className="container mx-auto py-16 px-4 sm:px-6 lg:px-8">
+    <div className="container mx-auto py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
       <div className="max-w-md mx-auto bg-gray-800 p-8 rounded-lg shadow-lg">
-        <h2 className="text-3xl font-extrabold text-green-500 text-center mb-6">Login</h2>
+        <h2 className="text-4xl font-extrabold text-green-500 text-center mb-6 tracking-tight">Login no AlertaCheia</h2>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-white">
@@ -66,7 +63,7 @@ const Login = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 hover:font-semibold transition"
+            className="w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 hover:font-semibold transition hover-scale"
           >
             Entrar
           </button>
@@ -74,7 +71,7 @@ const Login = () => {
         {JSON.parse(localStorage.getItem('currentUser')) && (
           <button
             onClick={handleLogout}
-            className="mt-4 w-full bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 hover:font-semibold transition"
+            className="mt-4 w-full bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 hover:font-semibold transition hover-scale"
           >
             Sair
           </button>
@@ -86,11 +83,19 @@ const Login = () => {
         )}
         <p className="mt-4 text-center text-white">
           Não tem uma conta?{' '}
-          <Link to="/cadastrar" className="text-green-500 hover:underline">
+          <Link to="/cadastrar" className="text-green-500 hover:underline hover:text-green-200">
             Cadastre-se
           </Link>
         </p>
       </div>
+      <style jsx>{`
+        .hover-scale {
+          transition: transform 0.3s ease;
+        }
+        .hover-scale:hover {
+          transform: scale(1.05);
+        }
+      `}</style>
     </div>
   );
 };

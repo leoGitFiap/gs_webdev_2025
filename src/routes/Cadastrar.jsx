@@ -9,32 +9,28 @@ const Cadastrar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Basic validation
     if (!username || !email || !password) {
       setMessage('Por favor, preencha todos os campos.');
       return;
     }
-    // Check if email is already registered
     const users = JSON.parse(localStorage.getItem('users')) || [];
     if (users.some((u) => u.email === email)) {
       setMessage('Este email já está cadastrado.');
       return;
     }
-    // Save new user
     const newUser = { username, email, password };
     users.push(newUser);
     localStorage.setItem('users', JSON.stringify(users));
-    setMessage('Cadastro realizado com sucesso!');
-    // Clear form
+    setMessage('Cadastro realizado com sucesso! Você agora pode receber alertas de alagamento.');
     setUsername('');
     setEmail('');
     setPassword('');
   };
 
   return (
-    <div className="container mx-auto py-16 px-4 sm:px-6 lg:px-8">
+    <div className="container mx-auto py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
       <div className="max-w-md mx-auto bg-gray-800 p-8 rounded-lg shadow-lg">
-        <h2 className="text-3xl font-extrabold text-green-500 text-center mb-6">Cadastrar</h2>
+        <h2 className="text-4xl font-extrabold text-green-500 text-center mb-6 tracking-tight">Cadastrar no AlertaCheia</h2>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label htmlFor="username" className="block text-sm font-medium text-white">
@@ -80,7 +76,7 @@ const Cadastrar = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 hover:font-semibold transition"
+            className="w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 hover:font-semibold transition hover-scale"
           >
             Cadastrar
           </button>
@@ -92,11 +88,19 @@ const Cadastrar = () => {
         )}
         <p className="mt-4 text-center text-white">
           Já tem uma conta?{' '}
-          <Link to="/login" className="text-green-500 hover:underline">
+          <Link to="/login" className="text-green-500 hover:underline hover:text-green-200">
             Faça login
           </Link>
         </p>
       </div>
+      <style jsx>{`
+        .hover-scale {
+          transition: transform 0.3s ease;
+        }
+        .hover-scale:hover {
+          transform: scale(1.05);
+        }
+      `}</style>
     </div>
   );
 };

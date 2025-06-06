@@ -1,24 +1,29 @@
-import React from 'react'
+import React from 'react';
 
 export const Footer = () => {
   return (
-    <footer className="bg-primary text-black py-8 mt-auto">
+    <footer className="gradient-bg text-white py-8 mt-auto">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <p className="text-sm">© 2025 Games Store. Todos os direitos reservados.</p>
+        <p className="text-sm">Entre em contato: <a href="mailto:contato@alertacheia.com" className="underline hover:text-green-200">contato@alertacheia.com</a> | Siga-nos nas redes sociais</p>
         <div className="mt-4 flex justify-center space-x-6">
-          <a href="#" className="text-secondary hover:text-green-300 transition">
+          <a href="#" className="text-white hover:text-green-200 transition">
             Facebook
           </a>
-          <a href="#" className="text-secondary hover:text-green-300 transition">
+          <a href="#" className="text-white hover:text-green-200 transition">
             Instagram
           </a>
-          <a href="#" className="text-secondary hover:text-green-300 transition">
+          <a href="#" className="text-white hover:text-green-200 transition">
             Twitter
           </a>
         </div>
       </div>
+      <style jsx>{`
+        .gradient-bg {
+          background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+        }
+      `}</style>
     </footer>
   );
-}
+};
 
 export default Footer;
