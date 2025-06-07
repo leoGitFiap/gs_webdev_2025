@@ -12,7 +12,7 @@ export const Nav = () => {
   return (
     <nav className="gradient-bg text-white p-6 sticky top-0 z-50 shadow-lg">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-        <h1 className="text-3xl font-bold tracking-tight text-green-500">AlertaCheia</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-white">AlertaCheia</h1>
         <ul className="flex space-x-6">
           <li>
             <NavLink

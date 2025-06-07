@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 const Solucao = () => {
   const [slideIndex, setSlideIndex] = useState(0);
   const slides = [
-    { src: './assets/aparelho.jpg', alt: 'Sensor in Flooded Area' },
-    { src: './assets/solucao.jpg', alt: 'Dashboard with Real-Time Alerts' },
+    { src: './src/assets/aparelho.jpg', alt: 'Sensor in Flooded Area' },
+    { src: './src/assets/solucao.jpg', alt: 'Dashboard with Real-Time Alerts' },
   ];
 
   const changeSlide = (n) => {
@@ -34,7 +34,7 @@ const Solucao = () => {
             <p className="text-lg leading-relaxed mt-6">
               Nosso processo de monitoramento e prevenção de inundações funciona de forma integrada:
             </p>
-            <ol className="list-decimal list-inside text-left mt-6 text-gray-700">
+            <ol className="list-decimal list-inside text-left mt-6">
               <li>
                 <span className="font-semibold">Sensores instalados no leito do rio:</span> Sensores medem continuamente a pressão da coluna d'água e identificam alterações no nível do rio que podem indicar risco de alagamento.
               </li>
