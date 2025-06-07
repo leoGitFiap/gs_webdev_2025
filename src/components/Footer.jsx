@@ -4,7 +4,6 @@ export const Footer = () => {
   return (
     <footer className="gradient-bg text-white py-8 mt-auto">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <p className="text-sm">Entre em contato: <a href="mailto:contato@alertacheia.com" className="underline hover:text-green-200">contato@alertacheia.com</a> | Siga-nos nas redes sociais</p>
         <div className="mt-4 flex justify-center space-x-6">
           <a href="#" className="text-white hover:text-green-200 transition">
             Facebook
