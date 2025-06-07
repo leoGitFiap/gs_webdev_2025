@@ -28,12 +28,12 @@ const Cadastrar = () => {
   };
 
   return (
-    <div className="container mx-auto py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-      <div className="max-w-md mx-auto bg-gray-800 p-8 rounded-lg shadow-lg">
-        <h2 className="text-4xl font-extrabold text-green-500 text-center mb-6 tracking-tight">Cadastrar no AlertaCheia</h2>
+    <div className="container mx-auto py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-md mx-auto bg-gray-200 p-8 rounded-lg shadow-lg">
+        <h2 className="text-4xl font-extrabold text-blue-500 text-center mb-6 tracking-tight">Cadastrar no AlertaCheia</h2>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="username" className="block text-sm font-medium text-white">
+            <label htmlFor="username" className="block text-sm font-medium">
               Nome de Usuário
             </label>
             <input
@@ -42,12 +42,12 @@ const Cadastrar = () => {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
-              className="mt-1 block w-full px-3 py-2 bg-gray-700 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
+              className="mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               placeholder="Digite seu nome de usuário"
             />
           </div>
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-white">
+            <label htmlFor="email" className="block text-sm font-medium">
               Email
             </label>
             <input
@@ -56,12 +56,12 @@ const Cadastrar = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="mt-1 block w-full px-3 py-2 bg-gray-700 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
+              className="mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               placeholder="Digite seu email"
             />
           </div>
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-white">
+            <label htmlFor="password" className="block text-sm font-medium">
               Senha
             </label>
             <input
@@ -70,25 +70,25 @@ const Cadastrar = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="mt-1 block w-full px-3 py-2 bg-gray-700 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
+              className="mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               placeholder="Digite sua senha"
             />
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 hover:font-semibold transition hover-scale"
+            className="w-full text-white bg-blue-600 px-4 py-2 rounded-lg hover:bg-blue-700 hover:font-semibold transition hover-scale"
           >
             Cadastrar
           </button>
         </form>
         {message && (
-          <p className={`mt-4 text-center ${message.includes('sucesso') ? 'text-green-500' : 'text-red-500'}`}>
+          <p className={`mt-4 text-center ${message.includes('sucesso') ? 'text-blue-500' : 'text-red-500'}`}>
             {message}
           </p>
         )}
-        <p className="mt-4 text-center text-white">
+        <p className="mt-4 text-center">
           Já tem uma conta?{' '}
-          <Link to="/login" className="text-green-500 hover:underline hover:text-green-200">
+          <Link to="/login" className="text-blue-500 hover:underline hover:text-blue-200">
             Faça login
           </Link>
         </p>
